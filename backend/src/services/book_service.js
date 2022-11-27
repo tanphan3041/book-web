@@ -8,7 +8,7 @@ class bookService {
     #getBook(payload) { 
         const book = { ...payload };
         const bookProperties = [
-            "sid", "Tua_sach", "Lan_xuat_ban", "So_trang", "Quoc_gia", "NXB", "Tac_gia", "The_loai"
+            "Tua_sach", "Lan_xuat_ban", "So_trang", "Quoc_gia", "NXB", "Tac_gia", "The_loai"
         ];
     // Remove non-contact properties
         Object.keys(book).forEach(function(key) {

@@ -6,32 +6,32 @@
          <ErrorMessage name="Tua_sach" class="error-feedback" />
       </div>
       <div class="form-group">
-         <label for="Lan_xuat_ban">E-mail</label>
+         <label for="Lan_xuat_ban">Lần xuất bản</label>
          <Field name="Lan_xuat_ban" type="text" class="form-control" v-model="bookLocal.Lan_xuat_ban" />
          <ErrorMessage name="Lan_xuat_ban" class="error-feedback" />
       </div>
       <div class="form-group">
-         <label for="So_trang">Địa chỉ</label>
+         <label for="So_trang">Số trang</label>
          <Field name="So_trang" type="text" class="form-control" v-model="bookLocal.So_trang" />
          <ErrorMessage name="So_trang" class="error-feedback" />
       </div>
       <div class="form-group">
-         <label for="Quoc_gia">Điện thoại</label>
+         <label for="Quoc_gia">Quốc gia</label>
          <Field name="Quoc_gia" type="text" class="form-control" v-model="bookLocal.Quoc_gia" />
          <ErrorMessage name="Quoc_gia" class="error-feedback" />
       </div>
       <div class="form-group">
-         <label for="NXB">Điện thoại</label>
+         <label for="NXB">Nhà xuất bản</label>
          <Field name="NXB" type="text" class="form-control" v-model="bookLocal.NXB" />
          <ErrorMessage name="NXB" class="error-feedback" />
       </div>
       <div class="form-group">
-         <label for="Tac_gia">Điện thoại</label>
+         <label for="Tac_gia">Tác giả</label>
          <Field name="Tac_gia" type="text" class="form-control" v-model="bookLocal.Tac_gia" />
          <ErrorMessage name="Tac_gia" class="error-feedback" />
       </div>
       <div class="form-group">
-         <label for="The_loai">Điện thoại</label>
+         <label for="The_loai">Thể loại</label>
          <Field name="The_loai" type="text" class="form-control" v-model="bookLocal.The_loai" />
          <ErrorMessage name="The_loai" class="error-feedback" />
       </div>
@@ -71,15 +71,15 @@ export default {
             .min(2, 'Tên phải ít nhất 2 ký tự.')
             .max(50, 'Tên có nhiều nhất 50 ký tự.'),
          Lan_xuat_ban: yup
-            .string()
+            .number()
             .required('Tên phải có giá trị.')
             .min(2, 'Tên phải ít nhất 2 ký tự.')
             .max(50, 'Tên có nhiều nhất 50 ký tự.'),
          So_trang: yup
             .number()
             .required('Tên phải có giá trị.')
-            .min(2, 'Tên phải ít nhất 2 ký tự.')
-            .max(50, 'Tên có nhiều nhất 50 ký tự.'),
+            .min(0, 'Tên phải ít nhất 2 ký tự.')
+            .max(100000, 'Tên có nhiều nhất 50 ký tự.'),
          Quoc_gia: yup
             .string()
             .required('Tên phải có giá trị.')
