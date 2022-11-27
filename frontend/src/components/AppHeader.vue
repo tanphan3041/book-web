@@ -35,7 +35,7 @@
     
 
     
-         <div class="d-flex me-auto">
+         <div class="d-flex navbar-expand-sm mr-auto">
 
            
             <router-link to="/home" class="navbar-link px-2">
