@@ -52,9 +52,9 @@ export default {
             .max(50, 'Tên sách có nhiều nhất 50 ký tự.'),
          author: yup
             .string()
-            .email('Tác giả không đúng.')
-            .max(50, 'Tác giả tối đa 50 ký tự.'),
-         address: yup.string().max(100, 'Nhà xuất bản tối đa 100 ký tự.'),
+            .required('Tác giả phải có giá trị.')
+            .min(2, 'Tác giả phải ít nhất 2 ký tự.')
+            .max(50, 'Tác giả có nhiều nhất 50 ký tự.'),
       });
       return {
          // Props are supposed to be immutable, therefore create
