@@ -3,6 +3,7 @@
       <div class="col-md-10">
          <InputSearch v-model="searchText" />
       </div>
+   </div>
       <div class="mt-3 col-md-6">
          <div class="col-md-6 col-lg-6">
          </div>
@@ -37,7 +38,7 @@
          <div v-if="activeBook">
             <h4>
                Thông tin sách
-               <i class="fas fa-address-card" />
+               <i class="fas fa-book" />
             </h4>
             <BookCard :book="activeBook" />
             <router-link :to="{
@@ -50,7 +51,7 @@
 
          </div>
       </div>
-   </div>
+     
 </template>
 
 <script >

@@ -17,7 +17,7 @@ export default {
          {{ book.author }}
       </div>
       <div class="p-1">
-         <strong>Địa chỉ:</strong>
+         <strong>Nhà xuất bản:</strong>
          {{ book.address }}
       </div>
       <div class="p-1">
@@ -26,4 +26,6 @@ export default {
          <i v-else class="fas fa-times" />
       </div>
    </div>
+
+
 </template>
