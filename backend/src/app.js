@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const contactController = require('./controller/book.controller')
+const contactController = require('./controllers/book.controller')
 const ApiError = require('./api-error');
 
 const app = express();
