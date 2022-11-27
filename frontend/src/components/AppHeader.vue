@@ -3,7 +3,7 @@
       <a href="/" class="navbar-brand">Ứng dụng Quản lý mượng sách</a>
       <div class="mr-auto navbar-nav">
          <li class="nav-item">
-            <router-link :to="{ name: 'booklist' }" class="nav-link">
+            <router-link :to="{ name: 'bookstore' }" class="nav-link">
                Tác phẩm
                <i class="fas fa-address-book" />
             </router-link>

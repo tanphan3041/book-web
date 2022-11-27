@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const contactController = require('./controllers/book.controller')
+const bookController = require('./controllers/book.controller')
 const ApiError = require('./api-error');
 
 const app = express();
@@ -12,17 +12,15 @@ app.get('/', (req, res) => {
    res.json({ message: 'Welcome to contact book application.' });
 });
 
-app.route('/api/contacts')
-   .get(contactController.findAll)
-   .post(contactController.create)
-   .delete(contactController.deleteAll);
+app.route('/api/books')
+   .get(bookController.findAll)
+   .post(bookController.create)
+   .delete(bookController.deleteAll);
 
-app.route('/api/contacts/favorite').get(contactController.findAllFavorite);
-
-app.route('/api/contacts/:id')
-   .get(contactController.findOne)
-   .put(contactController.update)
-   .delete(contactController.delete);
+app.route('/api/books/:sid')
+   .get(bookController.findOne)
+   .put(bookController.update)
+   .delete(bookController.delete);
 
 //Handle 404 response.
 app.use((req, res, next) => {
