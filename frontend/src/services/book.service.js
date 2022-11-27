@@ -25,16 +25,16 @@ class BookService {
       return (await this.api.delete(this.baseUrl)).data;
    }
 
-   async get(sid) {
-      return (await this.api.get(`${this.baseUrl}/${sid}`)).data;
+   async get(id) {
+      return (await this.api.get(`${this.baseUrl}/${id}`)).data;
    }
 
-   async update(sid, book) {
-      return (await this.api.put(`${this.baseUrl}/${sid}`, book)).data;
+   async update(id, book) {
+      return (await this.api.put(`${this.baseUrl}/${id}`, book)).data;
    }
 
-   async delete(sid) {
-      return (await this.api.delete(`${this.baseUrl}/${sid}`)).data;
+   async delete(id) {
+      return (await this.api.delete(`${this.baseUrl}/${id}`)).data;
    }
 }
 export const bookService = new BookService();

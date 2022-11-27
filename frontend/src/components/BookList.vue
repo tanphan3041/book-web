@@ -15,9 +15,9 @@ export default {
 
 <template>
    <ul class="list-group">
-      <li class="list-group-item" v-for="(book, index) in books" :key="book.sid"
+      <li class="list-group-item" v-for="(book, index) in books" :key="book.id"
          :class="{ active: index === activeIndex }" @click="updateActiveIndex(index)">
-         {{ book.Tua_sach }}
+         {{ book.name }}
       </li>
    </ul>
 </template>

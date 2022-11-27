@@ -4,15 +4,17 @@
          <InputSearch v-model="searchText" />
       </div>
       <div class="mt-3 col-md-6">
+         <div class="col-md-6 col-lg-6">
+         </div>
          <h4>
-            Danh bạ
-            <i class="fas fa-address-book" />
+            Danh sách tác phẩm
+            
          </h4>
+
          <BookList v-if="filteredBooksCount > 0" :books="filteredBooks" v-model:activeIndex="activeIndex" />
          <p v-else>
-            Không có sách nào.
+            Không có tác phẩm nào.
          </p>
-
          <div class="mt-3 row justify-content-around align-items-center">
             <button class="btn btn-sm btn-primary" @click="refreshList()">
                <i class="fas fa-redo" /> Làm mới
@@ -40,7 +42,7 @@
             <BookCard :book="activeBook" />
             <router-link :to="{
                name: 'book.edit',
-               params: { sid: activeBook.sid },
+               params: { id: activeBook.id },
             }">
                <span class="mt-2 badge badge-warning">
                   <i class="fas fa-edit" /> Hiệu chỉnh</span>
@@ -51,7 +53,7 @@
    </div>
 </template>
 
-<script>
+<script >
 import BookCard from '@/components/BookCard.vue';
 import InputSearch from '@/components/InputSearch.vue';
 import BookList from '@/components/BookList.vue';
@@ -81,8 +83,8 @@ export default {
       // Map books to strings for searching.
       booksAsStrings() {
          return this.books.map((book) => {
-            const { Tua_sach, Lan_xuat_ban, So_trang, Quoc_gia, NXB, Tac_gia, The_loai } = book;
-            return [Tua_sach, Lan_xuat_ban, So_trang, Quoc_gia, NXB, Tac_gia, The_loai].join('');
+            const { name, author, address, favorite } = book;
+            return [name, author, address, favorite].join('');
          });
       },
       // Return books filtered by the search box.
@@ -105,7 +107,7 @@ export default {
          try {
             const booksList = await bookService.getMany();
             this.books = booksList.sort((current, next) =>
-               current.Tua_sach.localeCompare(next.Tua_sach)
+               current.name.localeCompare(next.name)
             );
          } catch (error) {
             console.log(error);

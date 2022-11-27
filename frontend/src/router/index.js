@@ -14,10 +14,10 @@ const routes = [
 		component: () => import('@/views/NotFound.vue'),
 	},
    {
-      path: '/books/:sid',
+      path: '/books/:id',
       name: 'book.edit',
       component: () => import('@/views/BookEdit.vue'),
-      props: (route) => ({ bookId: parseInt(route.params.sid) })
+      props: (route) => ({ bookId: parseInt(route.params.id) })
    },
    {
       path: '/books',

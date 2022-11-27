@@ -23,9 +23,9 @@ export default {
       };
    },
    methods: {
-      async getBook(sid) {
+      async getBook(id) {
          try {
-            this.book = await bookService.get(sid);
+            this.book = await bookService.get(id);
          } catch (error) {
             console.log(error);
             // Redirect to NotFound page and keep URL intact
@@ -41,16 +41,16 @@ export default {
       },
       async onUpdateBook(book) {
          try {
-            await bookService.update(book.sid, book);
+            await bookService.update(book.id, book);
             this.message = 'Sách cập nhật thành công.';
          } catch (error) {
             console.log(error);
          }
       },
-      async onDeleteBook(sid) {
+      async onDeleteBook(id) {
          if (confirm('Bạn muốn xóa sách này?')) {
             try {
-               await bookService.delete(sid);
+               await bookService.delete(id);
                this.$router.push({ name: 'bookstore' });
             } catch (error) {
                console.log(error);

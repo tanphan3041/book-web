@@ -10,36 +10,20 @@ export default {
    <div>
       <div class="p-1">
          <strong>Tựa sách:</strong>
-         {{ book.Tua_sach }}
-      </div>
-      <div class="p-1">
-         <strong>Tái bản:</strong>
-         {{ book.Lan_xuat_ban }}
-      </div>
-      <div class="p-1">
-         <strong>Số trang:</strong>
-         {{ book.So_trang }}
-      </div>
-      <div class="p-1">
-         <strong>Quốc gia:</strong>
-         {{ book.Quoc_gia }}
-      </div>
-      <div class="p-1">
-         <strong>NXB:</strong>
-         {{ book.NXB }}
+         {{ book.name }}
       </div>
       <div class="p-1">
          <strong>Tác giả:</strong>
-         {{ book.Tac_gia }}
+         {{ book.author }}
       </div>
       <div class="p-1">
-         <strong>Thể loại:</strong>
-         {{ book.The_loai }}
+         <strong>Địa chỉ:</strong>
+         {{ book.address }}
       </div>
-      <!-- <div class="p-1">
-         <strong>Liên hệ yêu thích:&nbsp;</strong>
+      <div class="p-1">
+         <strong>Yêu thích:&nbsp;</strong>
          <i v-if="book.favorite" class="fas fa-check" />
          <i v-else class="fas fa-times" />
-      </div> -->
+      </div>
    </div>
 </template>
