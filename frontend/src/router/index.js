@@ -1,9 +1,17 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import BookStore from '@/views/BookStore.vue';
+import HomePage from '@/views/HomePage.vue';
+
 
 const routes = [
    {
-      path: '/',
+      path: '/home',
+      name: 'home',
+      component: HomePage,
+   },
+   
+   {
+      path: '/bookstore',
       name: 'bookstore',
       component: BookStore,
    },
