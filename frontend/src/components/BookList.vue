@@ -41,7 +41,7 @@ export default {
                   </p>
                   <hr>
 
-                  <router-link to="/rentBook">
+                  <router-link to="/renters">
                      <button class="btn btn-primary">
                         <span>
                            Rent
