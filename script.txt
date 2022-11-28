@@ -1,23 +1,7 @@
-<script>
-export default {
-   props: {
-      books: { type: Array, default: () => [] },
-      activeIndex: { type: Number, default: -1 },
-   },
-   emits: ['update:activeIndex'],
-   methods: {
-      updateActiveIndex(index) {
-         this.$emit('update:activeIndex', index);
-      },
-   },
-};
-</script>
-
-<template>
-   <div class="justify-content-center">
-
-         <div class="card text-center p-3 mb-3" v-for="(book, index) in books" :key="book.id"
-         :class="{ active: index === activeIndex }">
+ <div class="justify-content-center">
+      <!-- <div class="col-md-4 col-sm-3 mb-2"> -->
+         <div class="card text-center p-3 mb-3" v-for="(book, index) in books" :key="book.id" 
+            :class="{ active: index === activeIndex }">
                
                <div class="imgBox">
                   <!-- <img src="" alt="" srcset=""> -->
@@ -50,7 +34,16 @@ export default {
                   </router-link>
                </div>
          </div>
-
+      <!-- </div> -->
    </div>
 
-</template>
+
+
+   //Gốc
+
+    <ul class="list-group">
+      <li class="list-group-item" v-for="(book, index) in books" :key="book.id"
+         :class="{ active: index === activeIndex }" @click="updateActiveIndex(index)">
+         {{ book.name }}
+      </li>
+   </ul>
