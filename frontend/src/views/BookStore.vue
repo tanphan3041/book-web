@@ -1,10 +1,11 @@
 <template>
    <div class="page row">
-      <div class="col-md-10">
+      <div class="col-md-12">
          <InputSearch v-model="searchText" />
       </div>
    </div>
-      <div class="mt-3 col-md-6">
+
+      <!-- <div class="mt-3">
          <div class="col-md-6 col-lg-6">
          </div>
          <h4>
@@ -49,6 +50,19 @@
                   <i class="fas fa-edit" /> Hiệu chỉnh</span>
             </router-link>
 
+         </div>
+      </div> -->
+
+      <div class="container p-2 mt-4">
+         <div class="row d-flex justify-content-center">
+            <div class="col-md-8">
+               <div class="row">
+                  <BookList v-if="filteredBooksCount > 0" :books="filteredBooks" v-model:activeIndex="activeIndex" />
+                  <p v-else>
+                     Không có tác phẩm nào.
+                  </p>
+               </div>
+            </div>
          </div>
       </div>
      
