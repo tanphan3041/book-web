@@ -1,6 +1,8 @@
 import { createWebHistory, createRouter } from 'vue-router';
 import BookStore from '@/views/BookStore.vue';
 import HomePage from '@/views/HomePage.vue';
+// import Renter from '@/views/HomePage.vue';
+
 
 
 const routes = [
@@ -21,16 +23,24 @@ const routes = [
 		name: 'notfound',
 		component: () => import('@/views/NotFound.vue'),
 	},
+
    {
       path: '/books/:id',
       name: 'book.edit',
       component: () => import('@/views/BookEdit.vue'),
       props: (route) => ({ bookId: parseInt(route.params.id) })
    },
+
    {
       path: '/books',
       name: 'book.add',
       component: () => import('@/views/BookAdd.vue')
+   },
+
+   {
+      path: '/renters',
+      name: 'renter.add',
+      component: () => import('@/views/RenterAdd.vue')
    },
 ];
 

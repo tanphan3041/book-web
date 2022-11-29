@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const bookController = require('./controllers/books.controllers');
 const rentersController = require('./controllers/renters.controllers');
-const rentController = require('./controllers/rent.controllers');
+// const rentController = require('./controllers/rent.controllers');
 const ApiError = require('./api-error');
 
 const app = express();
@@ -26,18 +26,20 @@ app.route('/api/books/:id(\\d+)')
     .delete(bookController.delete);
 
 app.route('/api/renters')
-   .post(rentersController.signUp)
+    .get(rentersController.findAll)
+    .post(rentersController.create)
+    .delete(rentersController.deleteAll);
 
-app.route('/api/renters/:renterid(\\d+)')
-   .get(rentersController.signIn)
-   .put(rentersController.editRenter);
+app.route('/api/renters/:id(\\d+)')
+    .get(rentersController.findOne)
+    .delete(rentersController.delete);
 
-app.route('/api/rent')
-   .post(rentController.addRent)
+// app.route('/api/rent')
+//    .post(rentController.addRent)
 
-app.route('/api/rent/:rentid(\\d+)')
-   .delete(rentController.deleteRent)
-   .get(rentController.findRent)
+// app.route('/api/rent/:rentid(\\d+)')
+//    .delete(rentController.deleteRent)
+//    .get(rentController.findRent)
 
 
 // Handle 404 response.
