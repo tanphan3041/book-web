@@ -10,6 +10,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: true }));
+
+const db = require("./models");
+db.sequelize.sync();
+const Role = db.role;
+
+// db.sequelize.sync().then(() => {
+//   console.log('Drop and Resync Db');
+//   initial();
+// });
+
 app.get('/', (req, res) => {
     res.json({message:'Welcome to Library.'});
 });
@@ -34,6 +45,8 @@ app.route('/api/renters/:id(\\d+)')
     .get(rentersController.findOne)
     .delete(rentersController.delete);
 
+
+
 // app.route('/api/rent')
 //    .post(rentController.addRent)
 
@@ -41,6 +54,25 @@ app.route('/api/renters/:id(\\d+)')
 //    .delete(rentController.deleteRent)
 //    .get(rentController.findRent)
 
+function initial() {
+  Role.create({
+    id: 1,
+    name: "user"
+  });
+ 
+  Role.create({
+    id: 2,
+    name: "moderator"
+  });
+ 
+  Role.create({
+    id: 3,
+    name: "admin"
+  });
+}
+
+require('./routes/auth.routes')(app);
+require('./routes/user.routes')(app);
 
 // Handle 404 response.
 app.use((req, res, next) => {
