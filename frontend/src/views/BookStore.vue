@@ -5,66 +5,65 @@
       </div>
    </div>
 
-      <!-- <div class="mt-3">
-         <div class="col-md-6 col-lg-6">
-         </div>
-         <h4>
+      <div class="mt-3">
+         <h4 class="text-center">
             Danh sách tác phẩm
             
          </h4>
-
-         <BookList v-if="filteredBooksCount > 0" :books="filteredBooks" v-model:activeIndex="activeIndex" />
-         <p v-else>
-            Không có tác phẩm nào.
-         </p>
-         <div class="mt-3 row justify-content-around align-items-center">
-            <button class="btn btn-sm btn-primary" @click="refreshList()">
-               <i class="fas fa-redo" /> Làm mới
-            </button>
-
-            <router-link :to="{
-               name: 'book.add'
-            }">
-               <button class="btn btn-sm btn-success">
-                  <i class="fas fa-plus" /> Thêm mới
-               </button>
-            </router-link>
-
-            <button class="btn btn-sm btn-danger" @click="onDeleteBooks">
-               <i class="fas fa-trash" /> Xóa tất cả
-            </button>
-         </div>
       </div>
-      <div class="mt-3 col-md-6">
-         <div v-if="activeBook">
-            <h4>
-               Thông tin sách
-               <i class="fas fa-book" />
-            </h4>
-            <BookCard :book="activeBook" />
-            <router-link :to="{
-               name: 'book.edit',
-               params: { id: activeBook.id },
-            }">
-               <span class="mt-2 badge badge-warning">
-                  <i class="fas fa-edit" /> Hiệu chỉnh</span>
-            </router-link>
 
+         <div class="my-3 d-flex justify-content-evenly">
+               <!-- refresh -->
+               <button class="btn btn-primary" @click="refreshList()">
+                  <i class="fas fa-redo" /> Làm mới
+               </button>
+
+               <!-- add -->
+               <router-link :to="{
+               name: 'book.add'
+               }">
+                  <button class="btn btn-success">
+                     <i class="fas fa-plus" /> Thêm mới
+                  </button>
+               </router-link>
+               
+
+               <!-- delete -->
+               <button class="btn  btn-danger" @click="onDeleteBooks">
+                  <i class="fas fa-trash" /> Xóa tất cả
+               </button>
          </div>
-      </div> -->
-
-      <div class="container p-2 mt-4">
-         <div class="row d-flex justify-content-center">
+     
+         <div class="row">
             <div class="col-md-8">
-               <div class="row">
                   <BookList v-if="filteredBooksCount > 0" :books="filteredBooks" v-model:activeIndex="activeIndex" />
                   <p v-else>
                      Không có tác phẩm nào.
                   </p>
-               </div>
+            </div>
+
+           
+            <div class="col-md-4">
+                
+                     <div v-if="activeBook">
+                        <h4>
+                           Thông tin sách
+                           <i class="fas fa-book" />
+                        </h4>
+                        <BookCard :book="activeBook" />
+                        <router-link :to="{
+                           name: 'book.edit',
+                           params: { id: activeBook.id },
+                        }">
+                           <span class="btn btn-warning">
+                              <i class="fas fa-edit" /> Hiệu chỉnh</span>
+                        </router-link>
+
+                     </div>
+                 
             </div>
          </div>
-      </div>
+      <!-- </div> -->
      
 </template>
 
