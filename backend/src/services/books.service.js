@@ -8,7 +8,7 @@ class BookService {
     #getBook(payload) {
         const book = { ...payload };
         const bookProperties = [
-            "name", "author", "address", "favorite"
+            "name", "author", "address", "favorite", "price"
         ];
 
         // Remove non-contact properties

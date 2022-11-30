@@ -15,6 +15,11 @@
          <Field name="address" type="text" class="form-control" v-model="bookLocal.address" />
          <ErrorMessage name="address" class="error-feedback" />
       </div>
+      <div class="form-group">
+         <label for="price">Giá mượn</label>
+         <Field name="price" type="text" class="form-control" v-model="bookLocal.price" />
+         <ErrorMessage name="price" class="error-feedback" />
+      </div>
       <div class="form-group form-check">
          <input name="favorite" type="checkbox" class="form-check-input" v-model="bookLocal.favorite" />
          <label for="favorite" class="form-check-label">
@@ -55,6 +60,11 @@ export default {
             .required('Tác giả phải có giá trị.')
             .min(2, 'Tác giả phải ít nhất 2 ký tự.')
             .max(50, 'Tác giả có nhiều nhất 50 ký tự.'),
+         address: yup
+            .string()
+            .required('Nhà xuất bản phải có giá trị.')
+            .min(2, 'Nhà xuất bản phải ít nhất 2 ký tự.')
+            .max(50, 'Nhà xuất bản có nhiều nhất 50 ký tự.'),
       });
       return {
          // Props are supposed to be immutable, therefore create

@@ -30,13 +30,13 @@ export default {
                               {{book.author}}
                            </h4>
 
-                           <p>
+                           <!-- <p>
                               {{book.address}}
-                           </p>
+                           </p> -->
 
-                           <p>
-                              Price 
-                           </p>
+                           <!-- <p>
+                              {{book.price}}
+                           </p> -->
                            <hr>
 
                            <router-link to="/renters">

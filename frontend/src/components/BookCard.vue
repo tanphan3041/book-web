@@ -21,6 +21,10 @@ export default {
          {{ book.address }}
       </div>
       <div class="p-1">
+         <strong>Giá mượn:</strong>
+         {{ book.price }}
+      </div>
+      <div class="p-1">
          <strong>Yêu thích:&nbsp;</strong>
          <i v-if="book.favorite" class="fas fa-check" />
          <i v-else class="fas fa-times" />
