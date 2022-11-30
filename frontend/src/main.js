@@ -3,7 +3,29 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import App from './App.vue';
 
+import * as VeeValidate from 'vee-validate';
+// import { router } from './router';
+import store from '@/store';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import {
+  faHome,
+  faUser,
+  faUserPlus,
+  faSignInAlt,
+  faSignOutAlt
+} from '@fortawesome/free-solid-svg-icons';
+
 //import './assets/main.css'
 import router from './router';
 
-createApp(App).use(router).mount('#app');
+library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
+
+// Vue.config.productionTip = false;
+
+createApp(App).use(VeeValidate);
+createApp(App).component('font-awesome-icon', FontAwesomeIcon);
+createApp(App).use(router, store).mount('#app');
