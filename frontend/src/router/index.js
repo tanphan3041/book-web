@@ -2,8 +2,14 @@ import { createWebHistory, createRouter } from 'vue-router';
 import BookStore from '@/views/BookStore.vue';
 import HomePage from '@/views/HomePage.vue';
 // import Home from '@/views/Home.vue';
-import Login from '@/views/Login.vue';
-import Register from '@/views/Register.vue';
+
+import Login from "@/components/Login.vue";
+import Register from "@/components/Register.vue";
+// lazy-loaded
+const Profile = () => import("@/components/Profile.vue")
+const BoardAdmin = () => import("@/components/BoardAdmin.vue")
+const BoardModerator = () => import("@/components/BoardModerator.vue")
+const BoardUser = () => import("@/components/BoardUser.vue")
 // import Renter from '@/views/HomePage.vue';
 
 
@@ -47,37 +53,39 @@ const routes = [
    },
 
    {
-      path: '/login',
-      component: Login
-    },
-    {
-      path: '/register',
-      component: Register
-    },
-    {
-      path: '/profile',
-      name: 'profile',
+      path: "/login",
+      component: Login,
+   },
+   {
+      path: "/register",
+      component: Register,
+   },
+   {
+      path: "/profile",
+      name: "profile",
       // lazy-loaded
-      component: () => import('@/views/Profile.vue')
-    },
-    {
-      path: '/admin',
-      name: 'admin',
+      component: Profile,
+   },
+   {
+      path: "/admin",
+      name: "admin",
       // lazy-loaded
-      component: () => import('@/views/BoardAdmin.vue')
-    },
-    {
-      path: '/mod',
-      name: 'moderator',
+      component: BoardAdmin,
+   },
+   {
+      path: "/mod",
+      name: "moderator",
       // lazy-loaded
-      component: () => import('@/views/BoardModerator.vue')
-    },
-    {
-      path: '/user',
-      name: 'user',
+      component: BoardModerator,
+   },
+   {
+      path: "/user",
+      name: "user",
       // lazy-loaded
-      component: () => import('@/views/BoardUser.vue')
-    }
+      component: BoardUser,
+   },
+
+
 ];
 
 const router = createRouter({
