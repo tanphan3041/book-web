@@ -50,9 +50,9 @@
                <span class="text-dark">About</span>
             </router-link>
             
-            <router-link to="/" class="navbar-link px-2">
+            <!-- <router-link to="/" class="navbar-link px-2">
                <span class="text-dark">Login</span>
-            </router-link>
+            </router-link> -->
             
          </div>
         
