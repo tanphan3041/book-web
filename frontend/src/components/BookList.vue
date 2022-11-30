@@ -14,44 +14,46 @@ export default {
 </script>
 
 <template>
-   <div class="justify-content-center">
 
-         <div class="card text-center p-3 mb-3" v-for="(book, index) in books" :key="book.id"
-         :class="{ active: index === activeIndex }">
-               
-               <div class="imgBox">
-                  <!-- <img src="" alt="" srcset=""> -->
-               </div>
 
-               <div class="contentBox">
-                  <h2>
-                     {{book.name}}
-                  </h2>
+         <ul class="list-group">
+            <div class="justify-content-center">
+                  <div class="card text-center p-3 mb-3">
+                     <li class="list-group-item" v-for="(book, index) in books" :key="book.id"
+                              :class="{ active: index === activeIndex }"  @click="updateActiveIndex(index)" >
+                        <div class="contentBox">
+                           <h2>
+                              {{book.name}}
+                           </h2>
 
-                  <h4>
-                     {{book.author}}
-                  </h4>
+                           <h4>
+                              {{book.author}}
+                           </h4>
 
-                  <p>
-                     Price Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore obcaecati labore, commodi ab distinctio nobis sequi adipisci maxime rem iste eaque ipsum atque quidem totam consequatur iusto doloribus nulla ad.
-                  </p>
+                           <p>
+                              {{book.address}}
+                           </p>
 
-                  <p>
-                     Price 
-                  </p>
-                  <hr>
+                           <p>
+                              Price 
+                           </p>
+                           <hr>
 
-                  <router-link to="/renters">
-                     <button class="btn btn-primary">
-                        <span>
-                           Rent
-                        </span>
-                     </button>
-                  </router-link>
-               </div>
-         </div>
+                           <router-link to="/renters">
+                              <button class="btn btn-success">
+                                 <span>
+                                    Rent
+                                 </span>
+                              </button>
+                           </router-link>
+                        </div>
+                     </li>
+                  </div>
+            </div>
+         </ul>
 
-   </div>
+
+   
 
    <!-- dfa;dilashfoashfilshfsa commit -->
 
