@@ -75,6 +75,7 @@ import BookList from '@/components/BookList.vue';
 import { bookService } from '@/services/book.service';
 export default {
    components: {
+      // eslint-disable-next-line vue/no-unused-components
       BookCard,
       InputSearch,
       BookList,
