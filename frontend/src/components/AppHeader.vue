@@ -46,7 +46,7 @@
                <span class="text-dark">Book</span>
             </router-link>
             
-            <router-link to="/" class="navbar-link px-2">
+            <router-link to="/book.add" class="navbar-link px-2">
                <span class="text-dark">About</span>
             </router-link>
             
@@ -54,6 +54,13 @@
                <span class="text-dark">Login</span>
             </router-link>
             
+            <!-- <router-link :to="{
+               name: 'book.add'
+            }">
+               <button class="btn btn-sm btn-success">
+                  <i class="fas fa-plus" /> Thêm mới
+               </button>
+            </router-link> -->
          </div>
         
 
@@ -63,35 +70,89 @@
    
 </template>
 
-<!-- <script>
+<script>
+import BookCard from '@/components/BookCard.vue';
+import { bookService } from '@/services/book.service';
 export default {
+   components: {
+      // eslint-disable-next-line vue/no-unused-components
+      BookCard,
+   },
+   // The full code will be presented below
+   data() {
+      return {
+         books: [],
+         activeIndex: -1,
+         searchText: '',
+      };
+   },
+   watch: {
+      // Monitor changes on searchText.
+      // Release the currently selected book.
+      searchText() {
+         this.activeIndex = -1;
+      },
+   },
    computed: {
-      currentUser() {
-         return this.$store.state.auth.user;
+      // Map books to strings for searching.
+      booksAsStrings() {
+         return this.books.map((book) => {
+            const { name, author, address, favorite, img } = book;
+            return [name, author, address, favorite, img].join('');
+         });
       },
-      showAdminBoard() {
-         if (this.currentUser && this.currentUser.roles) {
-            return this.currentUser.roles.includes('ROLE_ADMIN');
-         }
-
-         return false;
+      // Return books filtered by the search box.
+      filteredBooks() {
+         if (!this.searchText) return this.books;
+         return this.books.filter((book, index) =>
+            this.booksAsStrings[index].includes(this.searchText)
+         );
       },
-      showModeratorBoard() {
-         if (this.currentUser && this.currentUser.roles) {
-            return this.currentUser.roles.includes('ROLE_MODERATOR');
-         }
-
-         return false;
-      }
+      activeBook() {
+         if (this.activeIndex < 0) return null;
+         return this.filteredBooks[this.activeIndex];
+      },
+      filteredBooksCount() {
+         return this.filteredBooks.length;
+      },
    },
    methods: {
-      logOut() {
-         this.$store.dispatch('auth/logout');
-         this.$router.push('/login');
-      }
-   }
+      async retrieveBooks() {
+         try {
+            const booksList = await bookService.getMany();
+            this.books = booksList.sort((current, next) =>
+               current.name.localeCompare(next.name)
+            );
+         } catch (error) {
+            console.log(error);
+         }
+      },
+
+      refreshList() {
+         this.retrieveBooks();
+         this.activeIndex = -1;
+      },
+
+      async onDeleteBooks() {
+         if (confirm('Bạn muốn xóa tất cả sách?')) {
+            try {
+               await bookService.deleteMany();
+               this.refreshList();
+            } catch (error) {
+               console.log(error);
+            }
+         }
+      },
+
+      goToAddBook() {
+         this.$router.push({ name: 'book.add' });
+      },
+   },
+   mounted() {
+      this.refreshList();
+   },
 };
-</script> -->
+</script>
 
 <style scoped>
 

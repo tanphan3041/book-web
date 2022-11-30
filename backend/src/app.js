@@ -12,14 +12,18 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
+
 const db = require("./models");
 db.sequelize.sync();
 const Role = db.role;
+
 
 // db.sequelize.sync().then(() => {
 //   console.log('Drop and Resync Db');
 //   initial();
 // });
+
+
 
 app.get('/', (req, res) => {
     res.json({message:'Welcome to Library.'});
@@ -45,8 +49,6 @@ app.route('/api/renters/:id(\\d+)')
     .get(rentersController.findOne)
     .delete(rentersController.delete);
 
-
-
 // app.route('/api/rent')
 //    .post(rentController.addRent)
 
@@ -54,6 +56,7 @@ app.route('/api/renters/:id(\\d+)')
 //    .delete(rentController.deleteRent)
 //    .get(rentController.findRent)
 
+// eslint-disable-next-line no-unused-vars
 function initial() {
   Role.create({
     id: 1,
@@ -81,6 +84,7 @@ app.use((req, res, next) => {
         return next(new ApiError(404, 'Resource not found'));
     });
     // Define error-handling middleware last, after other app.use() and routes calls.
+    // eslint-disable-next-line no-unused-vars
     app.use((err, req, res, next) => {
     
     // The centralized error handling middleware.

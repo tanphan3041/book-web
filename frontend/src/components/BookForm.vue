@@ -1,5 +1,5 @@
 <template>
-   <Form @submit="submitBook" :validation-schema="bookFormSchema">
+   <Form @submit="submitBook" :validation-schema="bookFormSchema" enctype="multipart/form-data">
       <div class="form-group">
          <label for="name">Tên sách</label>
          <Field name="name" type="text" class="form-control" v-model="bookLocal.name" />
@@ -14,6 +14,10 @@
          <label for="address">Nhà xuất bản</label>
          <Field name="address" type="text" class="form-control" v-model="bookLocal.address" />
          <ErrorMessage name="address" class="error-feedback" />
+      </div>
+      <div class="form-grop">
+         <label for="img">Hình ảnh</label>
+         <input name="img" type="file" class="form-control-file" v-on="bookLocal.img">
       </div>
       <div class="form-group form-check">
          <input name="favorite" type="checkbox" class="form-check-input" v-model="bookLocal.favorite" />

@@ -99,8 +99,8 @@ export default {
       // Map books to strings for searching.
       booksAsStrings() {
          return this.books.map((book) => {
-            const { name, author, address, favorite } = book;
-            return [name, author, address, favorite].join('');
+            const { name, author, address, favorite, img } = book;
+            return [name, author, address, favorite, img].join('');
          });
       },
       // Return books filtered by the search box.
@@ -146,9 +146,9 @@ export default {
          }
       },
 
-      //			goToAddBook() {
-      //				this.$router.push({ name: 'book.add' });
-      //			},
+      goToAddBook() {
+         this.$router.push({ name: 'book.add' });
+      },
    },
    mounted() {
       this.refreshList();
