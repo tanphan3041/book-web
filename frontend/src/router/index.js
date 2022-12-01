@@ -13,6 +13,12 @@ const BoardUser = () => import("@/components/BoardUser.vue")
 
 const routes = [
    {
+      path: '/',
+      name: '',
+      component: HomePage,
+   },
+   
+   {
       path: '/home',
       name: 'home',
       component: HomePage,

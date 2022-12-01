@@ -4,12 +4,12 @@
          <img id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
          <Form @submit="handleLogin" :validation-schema="schema">
             <div class="form-group">
-               <label for="username">Username</label>
+               <label for="username">Tên đăng nhập</label>
                <Field name="username" type="text" class="form-control" />
                <ErrorMessage name="username" class="error-feedback" />
             </div>
             <div class="form-group">
-               <label for="password">Password</label>
+               <label for="password">Mật khẩu</label>
                <Field name="password" type="password" class="form-control" />
                <ErrorMessage name="password" class="error-feedback" />
             </div>
@@ -45,8 +45,8 @@ export default {
    },
    data() {
       const schema = yup.object().shape({
-         username: yup.string().required("Username is required!"),
-         password: yup.string().required("Password is required!"),
+         username: yup.string().required("Hãy nhập tên người dùng!"),
+         password: yup.string().required("Hãy nhập mật khẩu!"),
       });
 
       return {

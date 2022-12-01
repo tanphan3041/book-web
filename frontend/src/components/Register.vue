@@ -5,7 +5,7 @@
          <Form @submit="handleRegister" :validation-schema="schema">
             <div v-if="!successful">
                <div class="form-group">
-                  <label for="username">Username</label>
+                  <label for="username">Tên đăng nhập</label>
                   <Field name="username" type="text" class="form-control" />
                   <ErrorMessage name="username" class="error-feedback" />
                </div>
@@ -15,7 +15,7 @@
                   <ErrorMessage name="email" class="error-feedback" />
                </div>
                <div class="form-group">
-                  <label for="password">Password</label>
+                  <label for="password">Mật khẩu</label>
                   <Field name="password" type="password" class="form-control" />
                   <ErrorMessage name="password" class="error-feedback" />
                </div>
@@ -23,7 +23,7 @@
                <div class="form-group">
                   <button class="btn btn-primary btn-block" :disabled="loading">
                      <span v-show="loading" class="spinner-border spinner-border-sm"></span>
-                     Sign Up
+                     Đăng ký
                   </button>
                </div>
             </div>
@@ -52,17 +52,17 @@ export default {
       const schema = yup.object().shape({
          username: yup
             .string()
-            .required("Username is required!")
+            .required("Tên người dùng là bắt buộc!")
             .min(3, "Must be at least 3 characters!")
             .max(20, "Must be maximum 20 characters!"),
          email: yup
             .string()
-            .required("Email is required!")
+            .required("Email là bắt buộc!")
             .email("Email is invalid!")
             .max(50, "Must be maximum 50 characters!"),
          password: yup
             .string()
-            .required("Password is required!")
+            .required("Hãy nhập mật khẩu!")
             .min(6, "Must be at least 6 characters!")
             .max(40, "Must be maximum 40 characters!"),
       });
